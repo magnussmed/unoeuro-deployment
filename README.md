@@ -43,11 +43,13 @@ Then we have to add the just generated remote repository to your local:
 ```bash
 git remote add production ssh://SIMPLY_SITE_DOMAIN@SIMPLY_SITE_HOST/var/www/SIMPLY_SITE_DOMAIN/repo/YOUR_REPO_NAME.git
 ```
-Now you will have to run since it's required:
+Note: the 'production' parameter could be anything you prefer. It could also be called 'staging', 'live' etc.
+<br><br>
+You will have to run since it's required for authentication:
 ```bash
 ssh-add PATH_TO_YOUR_IDENTITY_FILE
 ```
-Make sure it is the same identity file you got access with
+Make sure it's the same identity file you got access to the server with
 <br><br>
 Finally, you can deploy the master branch to the remote server:
 ```bash
