@@ -19,7 +19,7 @@ Create a new "repo" directory and init a new empty git repository inside:
 ```bash
 mkdir repo
 cd repo
-git init --bare YOUR_REPO_NAME
+git init --bare YOUR_REPO_NAME.git
 ```
 
 ### Create a new git hook
@@ -43,6 +43,8 @@ Then we have to add the just generated remote repository to your local:
 ```bash
 git remote add production ssh://SIMPLY_SITE_DOMAIN@SIMPLY_SITE_HOST/var/www/SIMPLY_SITE_DOMAIN/repo/YOUR_REPO_NAME.git
 ```
+You can check if it was a success by running "git remote"
+<br>
 Note: the 'production' parameter could be anything you prefer. It could also be called 'staging', 'live' etc.
 <br><br>
 You will have to run since it's required for authentication:
