@@ -2,6 +2,7 @@
 Deploy your site to Simply (UnoEuro) using git
 
 ## Setup and usage
+### Make sure you have access
 First of all, you need to have access to the remote server using SSH.
 <br><br>
 Then let's begin...
@@ -11,6 +12,7 @@ Get in the right folder on the remote server:
 cd /var/www/SIMPLY_SITE_DOMAIN
 ```
 
+### Create the remote repository
 Since Git is already installed, we don't need to worry about that.
 <br>
 Create a new "repo" directory and init a new empty git repository inside:
@@ -19,6 +21,8 @@ mkdir repo
 cd repo
 git init --bare YOUR_REPO_NAME
 ```
+
+### Create a new git hook
 Move into the new repository and create a new git hook:
 ```bash
 cd YOUR_REPO_NAME/hooks
@@ -33,10 +37,8 @@ Make it executable:
 ```bash
 chmod +x post-receive
 ```
-<br>
-<br>
-Now we have to setup the local stuff!<br>
-First, move into your local git repository<br>
+### Setup the local stuff
+First, move into your local working git repository<br>
 Then we have to add the just generated remote repository to your local:
 ```bash
 git remote add production SIMPLY_SITE_DOMAIN@SIMPLY_SITE_HOST/var/www/SIMPLY_SITE_DOMAIN/repo/YOUR_REPO_NAME.git
