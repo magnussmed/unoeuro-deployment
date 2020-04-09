@@ -6,7 +6,7 @@ First of all, you need to have access to the remote server using SSH.
 <br><br>
 Then let's begin...
 <br><br>
-Get in the right folder:
+Get in the right folder on the remote server:
 ```bash
 cd /var/www/SIMPLY_SITE_DOMAIN
 ```
@@ -32,4 +32,22 @@ and save it with ESC then :w then :qa to quit
 Make it executable:
 ```bash
 chmod +x post-receive
+```
+<br>
+<br>
+Now we have to setup the local stuff!<br>
+First, move into your local git repository<br>
+Then we have to add the just generated remote repository to your local:
+```bash
+git remote add production SIMPLY_SITE_DOMAIN@SIMPLY_SITE_HOST/var/www/SIMPLY_SITE_DOMAIN/repo/YOUR_REPO_NAME.git
+```
+Now you will have to run since it's required:
+```bash
+ssh-add PATH_TO_YOUR_IDENTITY_FILE
+```
+Make sure it is the same identity file you got access with
+<br><br>
+Finally, you can deploy the master branch to the remote server:
+```bash
+git push production master
 ```
