@@ -53,3 +53,4 @@ Finally, you can deploy the master branch to the remote server:
 ```bash
 git push production master
 ```
+That's it! Your changes should now appear on the server.
