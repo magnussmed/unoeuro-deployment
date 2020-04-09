@@ -1,4 +1,4 @@
-# Unoeuro site deployment
+# Simply.com (UnoEuro) Site Deployment
 Deploy your site to Simply (UnoEuro) using git
 
 ## Setup and usage
