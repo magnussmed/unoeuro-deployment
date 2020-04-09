@@ -29,8 +29,8 @@ cd YOUR_REPO_NAME/hooks
 vim post-receive
 ```
 Paste in the content from the example "post-receive" file<br>
-Replace SIMPLY_SITE_DOMAIN and YOUR_REPO_NAME<br>
-and save it with ESC then :w then :qa to quit
+Replace SIMPLY_SITE_DOMAIN and YOUR_REPO_NAME in the file<br>
+and save it using ESC then :w then :qa to quit
 <br>
 <br>
 Make it executable:
