@@ -41,7 +41,7 @@ chmod +x post-receive
 First, move into your local working git repository<br>
 Then we have to add the just generated remote repository to your local:
 ```bash
-git remote add production SIMPLY_SITE_DOMAIN@SIMPLY_SITE_HOST/var/www/SIMPLY_SITE_DOMAIN/repo/YOUR_REPO_NAME.git
+git remote add production ssh://SIMPLY_SITE_DOMAIN@SIMPLY_SITE_HOST/var/www/SIMPLY_SITE_DOMAIN/repo/YOUR_REPO_NAME.git
 ```
 Now you will have to run since it's required:
 ```bash
