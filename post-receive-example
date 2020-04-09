@@ -1,11 +1,11 @@
 #!/bin/bash
-TARGET="/var/www/hjemmesiden.dk/public_html"
-GIT_DIR="/var/www/hjemmesiden.dk/repo/falcon.git"
+TARGET="/var/www/SIMPLY_SITE_DOMAIN/public_html"
+GIT_DIR="/var/www/SIMPLY_SITE_DOMAIN/repo/YOUR_REPO_NAME.git"
 BRANCH="master"
 
 while read oldrev newrev ref
 do
-	# only checking out the master (or whatever branch you would like to deploy)
+	# Only checking out the master
 	if [ "$ref" = "refs/heads/$BRANCH" ];
 	then
 		echo "Ref $ref received. Deploying ${BRANCH} branch to production..."
