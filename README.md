@@ -38,7 +38,7 @@ Make it executable:
 chmod +x post-receive
 ```
 ### Setup the local stuff
-First, move into your local working git repository<br>
+1. First, move into your local working git repository<br>
 Then we have to add the just generated remote repository to your local:
 ```bash
 git remote add production ssh://SIMPLY_SITE_DOMAIN@SIMPLY_SITE_HOST/var/www/SIMPLY_SITE_DOMAIN/repo/YOUR_REPO_NAME.git
@@ -47,15 +47,15 @@ You can check if it was a success by running "git remote"
 <br>
 Note: the 'production' parameter could be anything you prefer. It could also be called 'staging', 'live' etc.
 <br><br>
-Add the "deploy-setup.sh" file to your root directory. It will automatically add composer and update your libaries if needed
+2. Add the "deploy-setup.sh" file to your root directory. It will automatically add composer and update your libaries if needed
 <br><br>
-You will have to run since it's required for authentication:
+3. You will have to run since it's required for authentication:
 ```bash
 ssh-add PATH_TO_YOUR_IDENTITY_FILE
 ```
 Make sure it's the same identity file you got access to the server with
 <br><br>
-Finally, you can deploy the master branch to the remote server:
+4. Finally, you can deploy the master branch to the remote server:
 ```bash
 git push production master
 ```
