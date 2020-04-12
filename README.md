@@ -47,6 +47,8 @@ You can check if it was a success by running "git remote"
 <br>
 Note: the 'production' parameter could be anything you prefer. It could also be called 'staging', 'live' etc.
 <br><br>
+Add the "deploy-setup.sh" file to your root directory. It will automatically add composer and update your libaries if needed
+<br><br>
 You will have to run since it's required for authentication:
 ```bash
 ssh-add PATH_TO_YOUR_IDENTITY_FILE
