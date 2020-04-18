@@ -44,4 +44,4 @@ Now you are able to make the deploy command:
 ```bash
 make deploy-prod
 ```
-Remember you will have to push some changes before you can run the deploy command.
+<b>Remember</b> you will have to push some changes before you can run the deploy command.
