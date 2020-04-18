@@ -4,59 +4,44 @@ Deploy your site to Simply (UnoEuro) using git
 ## Setup and usage
 ### Make sure you have access
 First of all, you need to have access to the remote server using SSH.
+<br>
+If you don't have any SSH key set up yet, you can do that by running the following in your terminal:
+```bash
+ssh-keygen
+```
+Add your public SSH key to the server:
+```bash
+open -e /Path/to/publickey
+```
+Copy the key and paste it in your simply.com administration panel.
 <br><br>
 Then let's begin...
 <br><br>
-Get in the right folder on the remote server:
-```bash
-cd /var/www/SIMPLY_SITE_DOMAIN
-```
-
-### Create the remote repository
-Since Git is already installed, we don't need to worry about that.
+### Configure the Makefile
+The project is using a Makefile to make simple executable shell scripts.
 <br>
-Create a new "repo" directory and init a new empty git repository inside:
+If you don't have Make installed, you can do that by using Homebrew:
 ```bash
-mkdir repo
-cd repo
-git init --bare YOUR_REPO_NAME.git
+brew install make
 ```
-
-### Create a new git hook
-Move into the new repository and create a new git hook:
-```bash
-cd YOUR_REPO_NAME/hooks
-vim post-receive
-```
-Paste in the content from the example "post-receive" file<br>
-Replace SIMPLY_SITE_DOMAIN and YOUR_REPO_NAME in the file<br>
-and save it using ESC then :w then :qa to quit
+Open the Makefile and take a look at the variables provided in the top.
 <br>
-<br>
-Make it executable:
-```bash
-chmod +x post-receive
-```
-### Setup the local stuff
-1. First, move into your local working git repository<br>
-Then we have to add the just generated remote repository to your local:
-```bash
-git remote add production ssh://SIMPLY_SITE_DOMAIN@SIMPLY_SITE_HOST/var/www/SIMPLY_SITE_DOMAIN/repo/YOUR_REPO_NAME.git
-```
-You can check if it was a success by running "git remote"
-<br>
-Note: the 'production' parameter could be anything you prefer. It could also be called 'staging', 'live' etc.
+You will need to change the three of them. REPO is automatically getting the current repository name that we're working in. So, we don't need to change that unless your .git folder isn't placed at the root as it should.
 <br><br>
-2. Add the "deploy-setup.sh" file to your root directory. It will automatically add composer and update your libaries if needed
+PROD_HOST is the remote host address<br>
+PROD_DOMAIN is obviously the production domain name<br>
+SSH_IDENTITY_PATH is the absolute path to your SSH private key
 <br><br>
-3. You will have to run since it's required for authentication:
+Once you have configured the above variables, you will now be able to run the make command:
 ```bash
-ssh-add PATH_TO_YOUR_IDENTITY_FILE
+make setup-deploy
 ```
-Make sure it's the same identity file you got access to the server with
+You will be asked your SSH password once, and the remote password twice.
+<br>
+Once it is done, it should return a green response saying "Deployment successfully configured".
 <br><br>
-4. Finally, you can deploy the master branch to the remote server:
+Now you are able to make the deploy command:
 ```bash
-git push production master
+make deploy-prod
 ```
-That's it! Your changes should now appear on the server.
+Remember you will have to push some changes before you can run the deploy command.
