@@ -1,7 +1,7 @@
 REPO							= $(shell basename -s .git `git config --get remote.origin.url`)
-PROD_HOST					= example-host.com
-PROD_DOMAIN				= examle.dk
-SSH_IDENTITY_PATH	= /Path/To/Identity/File
+PROD_HOST					= linux117.unoeuro.com
+PROD_DOMAIN				= websider.dk
+SSH_IDENTITY_PATH	= /Users/magnussmed/.ssh/unoeuro/unoeuro
 
 ssh-connect:
 	ssh -i $(SSH_IDENTITY_PATH) $(PROD_DOMAIN)@$(PROD_HOST)
