@@ -1,7 +1,7 @@
-REPO							= $(shell basename -s .git `git config --get remote.origin.url`)
-PROD_HOST					= example-host.com
-PROD_DOMAIN				= examle.dk
-SSH_IDENTITY_PATH	= /Path/To/Identity/File
+REPO              = $(shell basename -s .git `git config --get remote.origin.url`)
+PROD_HOST         = example-host.com
+PROD_DOMAIN       = examle.com
+SSH_IDENTITY_PATH = /Path/To/Identity/File
 
 ssh-connect:
 	ssh -i $(SSH_IDENTITY_PATH) $(PROD_DOMAIN)@$(PROD_HOST)
