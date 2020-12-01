@@ -1,7 +1,7 @@
 #!/bin/bash
-TARGET="/var/www/SIMPLY_SITE_DOMAIN/public_html"
-ROOT="/var/www/SIMPLY_SITE_DOMAIN"
-GIT_DIR="/var/www/SIMPLY_SITE_DOMAIN/repo/YOUR_REPO_NAME.git"
+TARGET="/var/www/websider.dk/public_html"
+ROOT="/var/www/websider.dk"
+GIT_DIR="/var/www/websider.dk/repo/unoeuro-deployment.git"
 BRANCH="master"
 
 while read oldrev newrev ref
