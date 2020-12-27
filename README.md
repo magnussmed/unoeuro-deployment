@@ -42,6 +42,11 @@ Once it is done, it should return a green response saying "Deployment successful
 <br><br>
 Now you are able to make the deploy command:
 ```bash
-make deploy-prod
+make app-deploy
 ```
+You can apply e=prod to target production servers. This will deploy the origin master branch:
+```bash
+make app-deploy e=prod
+```
+
 <b>Remember</b> you will have to push some changes before you can run the deploy command.
