@@ -1,6 +1,6 @@
 #!/bin/bash
 TARGET_PROD="/var/www/SIMPLY_SITE_DOMAIN/public_html"
-TARGET_STAGE="/var/www/SIMPLY_SITE_DOMAIN/staging"
+TARGET_STAGE="/var/www/SIMPLY_SITE_DOMAIN/stage"
 ROOT="/var/www/SIMPLY_SITE_DOMAIN"
 GIT_DIR="/var/www/SIMPLY_SITE_DOMAIN/repo/YOUR_REPO_NAME.git"
 
@@ -25,7 +25,7 @@ do
 		git --work-tree=$TARGET_STAGE --git-dir=$GIT_DIR checkout -f $BRANCH
 		chmod +rx $TARGET_STAGE/deploy/deploy-setup.sh
 		cd $TARGET_STAGE
-		sed -i -e '$aSetEnv PHP_ENV staging' .htaccess
+		sed -i -e '$aSetEnv PHP_ENV stage' .htaccess
 		cd deploy
 		./deploy-setup.sh
 	fi
