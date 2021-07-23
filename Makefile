@@ -31,12 +31,16 @@ setup-deploy:
 	@echo "\033[0;32mCall 'make app-deploy e=prod' to deploy the master branch to production servers.\033[0m"
 
 app-deploy:
+	@echo "\033[0;32mStarting deployment trigger\033[0m"
+	git commit --allow-empty -m "Trigger deploy"
+	git push
+
 ifeq ($(e), prod)
 	@echo "\033[0;32mDeploying master branch to production: "$(PROD_DOMAIN)"\033[0m"
 	git push production master
 	@echo "\033[0;32mSuccessfully deployed to production: "$(PROD_DOMAIN)"\033[0m"
 else
-	@echo "\033[0;32mDeploying current branch ($(CUR_BRANCH)) to stage: staging."$(PROD_DOMAIN)"\033[0m"
-	git push staging $(CUR_BRANCH)
-	@echo "\033[0;32mSuccessfully deployed ($(CUR_BRANCH)) to stage: staging."$(PROD_DOMAIN)"\033[0m"
+	@echo "\033[0;32mDeploying current branch ($(CUR_BRANCH)) to stage: stage."$(PROD_DOMAIN)"\033[0m"
+	git push stage $(CUR_BRANCH)
+	@echo "\033[0;32mSuccessfully deployed ($(CUR_BRANCH)) to stage: stage."$(PROD_DOMAIN)"\033[0m"
 endif
