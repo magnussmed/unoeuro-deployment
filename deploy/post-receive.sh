@@ -17,6 +17,7 @@ do
 		chmod +rx $TARGET_PROD/deploy/deploy-setup.sh
 		cd $TARGET_PROD
 		sed -i -e '$aSetEnv PHP_ENV production' .htaccess
+		rm -rf robots.txt
 		cd deploy
 		./deploy-setup.sh
 	else
